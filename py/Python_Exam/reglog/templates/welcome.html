@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'CSS/welcome.css' %}" />
+</head>
+<body>
+    <header>
+        <h1>Hi {{ request.session.first_name }} {{ request.session.last_name }}!</h1>
+        <a href="/logout">Logout</a>
+    </header>
+
+    <main>
+        <form action="/add_thought" method="POST">
+            {% csrf_token %}
+            <p><textarea name="thought" placeholder="Post a Great Thought here!" required></textarea></p>
+            <button class="add" type="submit">Add Thought!</button>
+        </form>
+        {% if messages %}
+        <ul class="messages">    
+            {% for message in messages %}    
+                <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </main>
+
+    <hr>
+    {% for thought in thoughts %}
+    <div class="posted_thoughts">
+        <p class="posted_by">{{thought.posted_by.first_name}} Says:</p>
+        <div class="thoughts_divs">
+            {{thought.thought}}
+        </div>
+        {% if request.session.user_id == thought.posted_by.id %}
+        <form action="/del_thought/{{thought.id}}" method="POST">
+            {% csrf_token %}
+            <button class="delete" type="submit">Delete</button>
+        </form>
+        {% endif %}
+        
+    </div>
+    <a class="details" href="thoughts/{{thought.id}}">Details</a>
+    <br><br>
+    {% endfor %}
+</body>
+</html>

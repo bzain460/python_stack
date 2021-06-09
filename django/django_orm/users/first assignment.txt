@@ -1,0 +1,16 @@
+ from second_app.models import *
+
+ users.objects.create(first_name='baraa')
+
+users.objects.create(first_name='baraa',last_name='zain',age=20)
+users.objects.create(first_name='memo',last_name='slameh',age=23)
+users.objects.create(first_name='memo',last_name='zozo',age=24)
+users.objects.all()
+users.objects.last()
+users.objects.first()
+some_users = users.objects.filter(id=3)
+some_users.last_name='pancakes'
+ users_to_delete = users.objects.get(id=2)
+users_to_delete.delete()
+users.objects.all().order_by('first_name')
+users.objects.all().order_by('-first_name')

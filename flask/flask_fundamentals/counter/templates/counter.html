@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+</head>
+<body>
+
+    <form action="/plus_two" method="post">
+        <label for="plus_two" >Plus Two</label>
+        <input type="submit" id="plus_two" value="Plus Two">
+    </form>
+
+    <form action="/destroy_session" method="post">
+        <label for="destroy">Destroy</label>
+        <input type="submit" id="destroy" value="Destroy">
+    </form>
+
+    <p>
+        visits: {{session['counter']}}
+    </p>
+
+</body>
+</html>

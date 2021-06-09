@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dojos & Ninjas with Template</title>
+    <style>
+      .forms {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      hr {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="forms">
+      <form action="/dojo_process" method="POST">
+        {% csrf_token %}
+        <h1>Add a Dojo</h1>
+        <input type="hidden" name="action" value="dojo" />
+        <p>Name <input type="text" name="name"/></p>
+        <p>City <input type="text" name="city"/></p>
+        <p>State <input type="text" name="state"/></p>
+        <button type="submit">Add</button>
+      </form>
+
+      <form action="/ninja_process" method="POST">
+        {% csrf_token %}
+        <h1>Add a Ninja</h1>
+        <input type="hidden" name="action" value="ninja" />
+        <p>First Name <input type="text" name="first"/></p>
+        <p>Last Name <input type="text" name="last"/></p>
+        <p>
+          Dojo
+          <select name="dojo" id="dojo">
+            {% for dojo in dojos %}
+                <option value="{{dojo.id}}">{{dojo.name}}</option>
+            {% endfor %}
+          </select>
+        </p>
+        <button type="submit">Add</button>
+      </form>
+    </div>
+    <hr />
+        <h1>All the Dojos</h1>
+        
+            {% for dojo in dojos %}
+            
+            <ul>
+                Ninjas at the {{dojo.name}} Dojo
+                <form action="/delete" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" name="del" value="{{dojo.id}}">delete</button>
+                </form>
+                
+                    {% for ninja in dojo.allninjas.all %}
+                    <li>{{ninja.first_name}}</li>
+                        
+                    {% endfor %}  
+                </ul>         
+            {% endfor %}
+  </body>
+</html>

@@ -1,0 +1,98 @@
+
+Book.objects.create(title="C sharp",desc="very good language")
+Book.objects.create(title="Java",desc="very good language")
+Book.objects.create(title="Python",desc="very good language")
+Book.objects.create(title="Php",desc="very good language")
+Book.objects.create(title="Ruby",desc="very good language")
+
+Author.objects.create(first_name="Alaa", last_name="Mansoor")
+Author.objects.create(first_name="Baraa", last_name="Zain")
+Author.objects.create(first_name="Adam", last_name="Dalbah")
+Author.objects.create(first_name="Omar", last_name="Alhaddar")
+Author.objects.create(first_name="Zozo", last_name="Jojo")
+
+this_book = Book.objects.get(id=1)
+this_book.title="C#"
+this_book.save()
+
+this_author = Author.objects.get(id=4)
+this_author.first_name="Bill"
+// asign author to two books
+
+this_author =Author.objects.get(id=1)
+
+this_book1=Book.objects.get(id=1)
+this_book2=Book.objects.get(id=2)
+
+this_book1.authors.add(this_author)
+this_book2.authors.add(this_author)
+
+// Assign the second author to the first 3 books
+
+this_author = Author.objects.get(id=2)
+
+this_book1=Book.objects.get(id=1)
+this_book2=Book.objects.get(id=2)
+this_book3=Book.objects.get(id=3)
+
+this_book1.authors.add(this_author)
+this_book2.authors.add(this_author)
+this_book3.authors.add(this_author)
+
+//Assign the third author to the first 4 books
+
+this_author = Author.objects.get(id=3)
+
+this_book1=Book.objects.get(id=1)
+this_book2=Book.objects.get(id=2)
+this_book3=Book.objects.get(id=3)
+this_book4=Book.objects.get(id=4)
+
+this_book1.authors.add(this_author)
+this_book2.authors.add(this_author)
+this_book3.authors.add(this_author)
+this_book4.authors.add(this_author)
+
+
+// Assign the fourth author to the first 5 books
+
+this_author = Author.objects.get(id=4)
+
+this_book1=Book.objects.get(id=1)
+this_book2=Book.objects.get(id=2)
+this_book3=Book.objects.get(id=3)
+this_book4=Book.objects.get(id=4)
+this_book5=Book.objects.get(id=5)
+
+this_book1.authors.add(this_author)
+this_book2.authors.add(this_author)
+this_book3.authors.add(this_author)
+this_book4.authors.add(this_author)
+this_book5.authors.add(this_author)
+
+//Retrieve all the authors for the 3rd book
+
+this_book = Book.objects.get(id=3)
+this_book.authors.all()
+
+//Remove the first author of the 3rd book
+this_book = Book.objects.get(id=3)
+this_author=Author.objects.get(id=1)
+this_book.authors.remove(this_author)
+
+//Add the 5th author as one of the authors of the 2nd book
+
+this_author=Author.objects.get(id=5)
+this_book = Book.objects.get(id=2)
+this_book.authors.add(this_author)
+
+// Find all the books that the 3rd author is part of
+
+this_author=Author.objects.get(id=3)
+this_author.books.all()
+
+//
+
+Find all the authors that contributed to the 5th book
+this_book=Book.objects.get(id=5)
+this_book.authors.all()

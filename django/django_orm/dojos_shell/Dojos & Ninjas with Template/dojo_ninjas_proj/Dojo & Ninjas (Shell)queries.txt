@@ -1,0 +1,42 @@
+Create 3 new dojos:
+dojos.objects.create(name="omar", city="ramallah", state="palestine")
+dojos.objects.create(name="Ahmad", city="Amman", state="jordan")
+dojos.objects.create(name="Abdo", city="Cairo", state="Egypt")
+
+Delete the 3 dojos you just created:
+dojos.objects.all().delete()
+
+Create 3 more dojos:
+dojos.objects.create(name="mohammad", city="nablus", state="palestine")
+dojos.objects.create(name="sami", city="hebron", state="palestine")
+dojos.objects.create(name="fadi", city="jenin", state="palestine")
+
+Create 3 ninjas that belong to the first dojo:
+ninjas.objects.create(first_name="leo",last_name="messi", dojo=dojos.objects.get(id=4))
+ninjas.objects.create(first_name="cristiano",last_name="ronaldo", dojo=dojos.objects.get(id=4))
+ninjas.objects.create(first_name="mohammad",last_name="salah", dojo=dojos.objects.get(id=4))
+
+Create 3 ninjas that belong to the second dojo:
+
+ninjas.objects.create(first_name="ahmad",last_name="ali", dojo=dojos.objects.get(id=5))
+ninjas.objects.create(first_name="khaled",last_name="rami", dojo=dojos.objects.get(id=5))
+ninjas.objects.create(first_name="shahd",last_name="ameer", dojo=dojos.objects.get(id=5))
+
+Create 3 ninjas that belong to the third dojo:
+
+ninjas.objects.create(first_name="samar",last_name="sameer", dojo=dojos.objects.get(id=6))
+ninjas.objects.create(first_name="aseel",last_name="kareem", dojo=dojos.objects.get(id=6))
+ninjas.objects.create(first_name="tasneem",last_name="ali", dojo=dojos.objects.get(id=6))
+
+Retrieve all the ninjas from the first dojo:
+x=dojos.objects.first()
+x.allninjas.all()
+
+Retrieve all the ninjas from the last dojo:
+x=dojos.objects.last()
+x.allninjas.all()
+
+Retrieve the last ninja's dojo:
+ninjas.objects.last()
+
+dojos.objects.create(name="ahmad", city="alram", state="palestine")

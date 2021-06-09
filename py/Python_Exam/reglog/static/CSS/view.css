@@ -1,0 +1,49 @@
+header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.logout{
+    margin-left: 10px;
+}
+
+.thoughts_divs{
+    border: 1px solid black;
+    padding: 5px;
+    width: 415px;
+    height: auto;
+}
+.posted_thoughts{
+display: flex;
+margin-bottom: 9px;
+}
+
+.posted_by{
+    margin-left: 10px;
+    width: 100px;
+}
+form{
+    margin-left: 419px;
+}
+
+.like{
+    background-color: green;
+    color: white;
+
+}
+
+.unlike{
+    background-color: orange;
+    color: white;
+}
+
+table, td, th {
+    border: 1px solid black;
+    height: 30px;
+  }
+  
+table {
+    width: 300px;
+    border-collapse: collapse;
+    text-align: center;
+}

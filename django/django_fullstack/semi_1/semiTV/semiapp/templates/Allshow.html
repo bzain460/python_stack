@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>All shows</title>
+</head>
+<body>
+    <div style="width: 500px; height: 150px;">
+    <table style="border-style:solid;" class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Network</th>
+            <th scope="col">Release date</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for show in shows %}
+        <tr>
+            
+            <th scope="row">{{show.id}} </th>
+            <td>{{show.Title}}</td>
+            <td>{{show.Network}}</td>
+            <td>{{show.Release_date}}</td>
+            <td><a href="http://localhost:8000/show/{{show.id}}"> Show </a>  |  <a href="http://localhost:8000/show/{{show.id}}/edit"> Edit </a> | <a href="delete/{{show.id}}"> Delete </a> </td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+    <a href="">Add A new Show</a>
+</body>
+</html>

@@ -1,0 +1,64 @@
+*{
+    margin: 0;
+}
+main{
+    padding: 2px;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 3px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+h1{
+    margin-right: 700px;
+}
+hr{
+    border: 1px solid black;
+    margin: 8px 0px 8px 10px;
+    width: 600px;
+}
+.messages{
+    color: red;
+}
+textarea{
+    width: 500px;
+    height: auto;
+    display: inline;
+    margin-right: 20px;
+}
+form{
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+.add{
+    height: 26px;
+    background-color: rgb(47, 94, 224);
+    color: white;
+}
+.thoughts_divs{
+    border: 1px solid black;
+    padding: 5px;
+    width: 415px;
+    height: auto;
+}
+.posted_thoughts{
+display: flex;
+margin-bottom: 9px;
+}
+
+.posted_by{
+    margin-left: 10px;
+    width: 100px;
+}
+.delete{
+    height: 20px;
+    background-color: red;
+    color: white;
+}
+.details{
+    margin-left: 110px;
+}

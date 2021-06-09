@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>welcome</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'CSS/view.css' %}" />
+</head>
+<body>
+    <header>
+        <a href="/thoughts">Dashboard</a>
+        <a class="logout" href="/logout">Logout</a>
+    </header>
+
+    <main>
+        <div class="posted_thoughts">
+            <p class="posted_by">{{this_thought.posted_by.first_name}} Says:</p>
+            <div class="thoughts_divs">
+                {{this_thought.thought}}
+            </div>
+        </div>
+        <form action="/like_unlike/{{this_thought.id}}" method="POST">
+            {% csrf_token %}
+            <button class="like" type="submit" name="action" value="like">Like</button>
+            <button class="unlike" type="submit" name="action" value="unlike">Unlike</button>
+        </form>
+        <br><br>
+        <p>People who liked this thought:</p>
+        <table>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+            {% for this_user in users%}
+            {% if this_user in this_thought.users.all %}
+            <tr>
+                <td>{{this_user.first_name}}</td>
+                <td>{{this_user.last_name}}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+
+    </main>
+</body>
+</html>

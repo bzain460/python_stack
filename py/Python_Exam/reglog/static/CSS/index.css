@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 3px;
+}
+.forms{
+    display: flex;
+    justify-content: space-evenly;
+}
+.messages{
+    color: red;
+}
+input{
+    width: 100% ;
+}

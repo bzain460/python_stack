@@ -1,0 +1,19 @@
+pip list :  List installed packages.
+
+deactivate: (This will deactivate your virtual environment)
+
+pip3 list: when you have two versions of python on your computer
+it runs them Both and give the same result
+
+pip install Django==2.2.4
+Collecting Django==2.2.4
+Downloading Django-2.2.4-py3-none-any.whl 
+pip install Django==2.2.4: Collecting sqlparse/Collecting pytz/Installing collected packages: sqlparse, pytz, Django
+
+freeze: Output installed packages in requirements format.Django==2.2./pytz==2021.1/sqlparse==0.4.1
+
+pip freeze > requirements.txt / we will see the packages and their versions
+
+pip uninstall Django // it will delete the package
+
+pip show Django/ WARNING: Package(s) not found: Django

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="http://localhost:8000/allshows">All Shows</a>
+    <h1>Tv Show {{ current_show.id }}</h1>
+    <h3>Title: {{ current_show.Title }}</h3> <br>
+    <h3>Network: {{ current_show.Network }} <br></h3>
+    <h3>Release Date: {{ current_show.Release_date }} </h3> <br>
+    <h3>Description {{ current_show.Description }} <br> <br> <br> <br> <br> <br>  </h3>
+
+
+
+
+    Last update: {{ current_show.updated_at }} <br> <br>
+
+    <a href="{{current_show.id}}/edit">Edit</a>  <span> | </span> <a href="    ">Delete</a>
+</body>
+</html>
